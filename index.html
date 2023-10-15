@@ -392,12 +392,6 @@
             if (imgvalue == i) {
               item.classList.add("selectdeshoe");
               item.children[1].style.opacity = "0";
-              // title.style.filter = "blur(20px)";
-              // clearTimeout(sidelefttimer1);
-              // sidelefttimer1 = setTimeout(() => {
-              //   title.innerHTML = shoesarray[i].title;
-              //   title.style.filter = "blur(0px)";
-              // }, 500);
             }
             if (imgvalue > i) {
               item.style.opacity = "0";
@@ -415,7 +409,9 @@
           showhidebuttons();
         }
       }
-      slideright();
+      document.body.onload=()=>{
+        slideright();
+      }
       function slideleft() {
         if (imgvalue > 0) {
           let allshoescontainer = document.querySelectorAll(".shoecontainer");
@@ -427,12 +423,6 @@
             if (imgvalue == i) {
               item.classList.remove("selectdeshoe");
               item.children[1].style.opacity = "1";
-              // title.style.filter = "blur(20px)";
-              // clearTimeout(sliderighttimer1);
-              // sliderighttimer1 = setTimeout(() => {
-              //   title.innerHTML = tiledata[i - 1].title;
-              //   title.style.filter = "blur(0px)";
-              // }, 500);
             }
             if (imgvalue > i + 1) {
               item.style.opacity = "0";
