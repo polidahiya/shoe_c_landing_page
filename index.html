@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NIKE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        height: 100vh;
+        width: 100%;
+        margin: 0px;
+        overflow: hidden;
+        position: relative;
+        user-select: none;
+      }
+      .bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -100;
+        height: 100vh;
+        width: 100vw;
+      }
+      .circle {
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        height: 100vw;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        translate: 50% -50%;
+      }
+      .circle1 {
+        background-color: rgb(211, 244, 118);
+        scale: 1.05;
+        animation: bg1 5s alternate infinite;
+      }
+      .circle2 {
+        background-color: rgb(189, 239, 56);
+        animation: bg2 5s 1s alternate infinite;
+      }
+      @keyframes bg1 {
+        0% {
+          scale: 1.05;
+        }
+        100% {
+          scale: 1.1;
+        }
+      }
+      @keyframes bg2 {
+        0% {
+          scale: 1;
+        }
+        100% {
+          scale: 0.95;
+        }
+      }
+      /*  lines  */
+      .line {
+        position: absolute;
+        left: 0%;
+        height: 200vh;
+        width: 50px;
+        border-radius: 50px;
+        background-color: rgb(211, 244, 118);
+        transform: rotate(-30deg) translate(300%, -50%);
+      }
+      .line1 {
+        top: 0%;
+        transition: 1s;
+        animation: line1 1s alternate forwards;
+      }
+
+      .line2 {
+        top: unset;
+        bottom: 0;
+        transition: 1s;
+        animation: line2 1s alternate forwards;
+        transform: rotate(-30deg) translate(0%, 80%);
+      }
+      /*buttons  */
+      .buttons {
+        position: absolute;
+        bottom: 50px;
+        border: 2px solid white;
+        height: 50px;
+        aspect-ratio: 1;
+        background-color: rgb(189, 239, 56);
+        border-radius: 50%;
+        outline: 10px solid rgb(211, 244, 118);
+        z-index: 100;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      .buttons img {
+        height: 100%;
+      }
+      .buttons:hover {
+        outline: 15px solid rgb(211, 244, 118);
+      }
+      .left {
+        right: 150px;
+      }
+      .right {
+        right: 50px;
+      }
+      /*  */
+      nav {
+        height: 100px;
+        width: 100vw;
+        max-width: 100vw;
+        display: flex;
+        align-items: center;
+        padding: 0px 50px;
+        gap: 20px;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        font-family: "Satisfy", cursive;
+      }
+      .logo {
+        height: 200%;
+        cursor: pointer;
+        transform: translateY(20px);
+      }
+      .navbuttons {
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: 0.2s;
+        position: relative;
+      }
+      .navbuttons::before{
+        position: absolute;
+        content: "";
+        height: 2px ;
+        width: 0%;
+        background-color: white;
+        bottom: 0;
+        left: 0;
+        transition: 0.4s;
+      }
+      .navbuttons:hover {
+        transform: scale(1.1);
+      }
+      .navbuttons:hover::before{
+        width: 100%;
+        /* background-color: red; */
+      }
+      .navbuttons:nth-child(2) {
+        margin-left: auto;
+      }
+      .cart {
+        height: 50%;
+        cursor: pointer;
+        margin-left: 50px;
+      }
+      /*  */
+      .details {
+        height: 50vh;
+        max-width: 50vw;
+        padding: 30px 50px;
+        display: flex;
+        flex-direction: column;
+      }
+      .heading {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .heading span {
+        font-size: 80px;
+        text-transform: uppercase;
+      }
+      .heading span:nth-child(1) {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: 5px;
+      }
+      .heading span:nth-child(2) {
+        color: rgb(74, 199, 36);
+        font-family: "Poppins", sans-serif;
+        font-family: "Satisfy", cursive;
+      }
+      .details p {
+        font-size: 20px;
+        text-align: justify;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      /*  */
+      .detailsbuttons {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        max-height: 40px;
+        width: 100%;
+        margin-top:auto;
+      }
+      .buynow,
+      .mediabuttons {
+        height: 100%;
+        border-radius: 40px;
+        display: grid;
+        place-content: center;
+        padding: 5px;
+        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.457);
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .buynow {
+        width: 150px;
+        background-color: rgb(74, 199, 36);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      .buynow:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+      .mediabuttons {
+        background-color: rgb(255, 255, 255);
+        margin-left: 20px;
+      }
+      .mediabuttons:hover {
+        transform: scale(1.1);
+        background-color: rgb(74, 199, 36);
+      }
+      .mediabuttons:nth-child(2) {
+        margin-left: 100px;
+      }
+      .mediabuttons img {
+        height: 30px;
+        aspect-ratio: 1;
+      }
+      .mediabuttons:hover img{
+        filter: brightness(100);
+      }
+      /*  */
+      .shoecontainer {
+        position: absolute;
+        top: calc(100% - 130px);
+        height: 100px;
+        aspect-ratio: 1;
+        background-color: rgb(189, 239, 56);
+        border-radius: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.457);
+        transition: transform 0.5s, top 0.5s, right 0.5s, opacity 0.2s;
+        pointer-events: none;
+      }
+      .shoe {
+        width: 100%;
+        transform: translateY(-30%);
+      }
+      .shoeprice {
+        font-family: "Poppins", sans-serif;
+        font-family: "Satisfy", cursive;
+        position: absolute;
+        bottom: 10px;
+      }
+      .selectdeshoe {
+        background: transparent;
+        box-shadow: none;
+        transform: scale(5);
+        top: 70vh;
+        right: 25% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="circle1 circle"></div>
+      <div class="circle2 circle"></div>
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+    </div>
+    <nav>
+      <img src="logo.svg" alt="" class="logo" />
+      <span class="navbuttons">Home</span>
+      <span class="navbuttons">Featured</span>
+      <span class="navbuttons">Products</span>
+      <span class="navbuttons">Explore</span>
+      <span class="navbuttons">Contact Us</span>
+      <img src="cart.svg" alt="" class="cart" />
+    </nav>
+    <div class="details">
+      <div class="heading">
+        <span>nike</span>
+        <span>shoes</span>
+      </div>
+      <p>
+        Nike, Inc. is an American multinational corporation that is engaged in
+        the design, development, manufacturing, and worldwide marketing and sales
+        of footwear, apparel, equipment, accessories, and services.
+      </p>
+      <div class="detailsbuttons">
+        <div class="buynow">Buy now</div>
+        <div class="mediabuttons">
+          <img src="shoeimages/facebook.svg" alt="" />
+        </div>
+        <div class="mediabuttons">
+          <img src="shoeimages/insta.svg" alt="" />
+        </div>
+        <div class="mediabuttons">
+          <img src="shoeimages/twitter.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="left buttons" onclick="slideleft()">
+      <img src="shoeimages/larrow.svg" alt="" />
+    </div>
+    <div class="right buttons" onclick="slideright()">
+      <img src="shoeimages/rarrow.svg" alt="" />
+    </div>
+    <script>
+      let shoesarray = [
+        {
+          img: "shoeimages/shoe1.png",
+          price: "80 $",
+          pos: "",
+        },
+        {
+          img: "shoeimages/shoe2.png",
+          price: "105 $",
+          pos: "",
+        },
+        {
+          img: "shoeimages/shoe3.png",
+          price: "89 $",
+          pos: "",
+        },
+        {
+          img: "shoeimages/shoe4.png",
+          price: "110 $",
+          pos: "",
+        },
+        {
+          img: "shoeimages/shoe1.png",
+          price: "99 $",
+          pos: "",
+        },
+        {
+          img: "shoeimages/shoe2.png",
+          price: "90 $",
+          pos: "",
+        },
+        {
+          img: "shoeimages/shoe3.png",
+          price: "95 $",
+          pos: "",
+        },
+        {
+          img: "shoeimages/shoe4.png",
+          price: "87 $",
+          pos: "",
+        },
+      ];
+      //
+      shoesarray.forEach((item, i) => {
+        let container = document.createElement("div");
+        container.classList.add("shoecontainer");
+        let img = document.createElement("img");
+        img.classList.add("shoe");
+        img.src = shoesarray[i].img;
+        let price = document.createElement("div");
+        price.classList.add("shoeprice");
+        price.innerHTML = shoesarray[i].price;
+        container.appendChild(img);
+        container.appendChild(price);
+        shoesarray[i].pos = window.innerWidth / 2 + 115 * i;
+        container.style.right = shoesarray[i].pos + "px";
+        document.body.appendChild(container);
+      });
+      //
+      let autoplayinterval;
+      let imgvalue = -1;
+      function slideright() {
+        let allshoescontainer = document.querySelectorAll(".shoecontainer");
+        if (imgvalue < shoesarray.length - 1) {
+          imgvalue++;
+          allshoescontainer.forEach((item, i) => {
+            if (imgvalue == i) {
+              item.classList.add("selectdeshoe");
+              item.children[1].style.opacity = "0";
+              // title.style.filter = "blur(20px)";
+              // clearTimeout(sidelefttimer1);
+              // sidelefttimer1 = setTimeout(() => {
+              //   title.innerHTML = shoesarray[i].title;
+              //   title.style.filter = "blur(0px)";
+              // }, 500);
+            }
+            if (imgvalue > i) {
+              item.style.opacity = "0";
+            } else {
+              item.style.opacity = "1";
+            }
+            if (!item.classList.contains("selectdeshoe")) {
+              item.style.right = shoesarray[i].pos - 115 + "px";
+              shoesarray[i].pos -= 115;
+            }
+          });
+          clearInterval(autoplayinterval);
+          autoplay();
+          lineanimation();
+          showhidebuttons();
+        }
+      }
+      slideright();
+      function slideleft() {
+        if (imgvalue > 0) {
+          let allshoescontainer = document.querySelectorAll(".shoecontainer");
+          allshoescontainer.forEach((item, i) => {
+            if (!item.classList.contains("selectdeshoe")) {
+              item.style.right = shoesarray[i].pos + 115 + "px";
+              shoesarray[i].pos += 115;
+            }
+            if (imgvalue == i) {
+              item.classList.remove("selectdeshoe");
+              item.children[1].style.opacity = "1";
+              // title.style.filter = "blur(20px)";
+              // clearTimeout(sliderighttimer1);
+              // sliderighttimer1 = setTimeout(() => {
+              //   title.innerHTML = tiledata[i - 1].title;
+              //   title.style.filter = "blur(0px)";
+              // }, 500);
+            }
+            if (imgvalue > i + 1) {
+              item.style.opacity = "0";
+            } else {
+              item.style.opacity = "1";
+            }
+          });
+          imgvalue--;
+          clearInterval(autoplayinterval);
+          autoplay();
+          lineanimation();
+          showhidebuttons();
+        }
+      }
+      // line animation
+      function lineanimation() {
+        let line1 = document.querySelector(".line1");
+        let line2 = document.querySelector(".line2");
+        line1.style.transform = "rotate(-30deg) translate(300%, -100%)";
+        line2.style.transform = "rotate(-30deg) translate(0%, 120%)";
+        setTimeout(() => {
+          line1.style.transform = "rotate(-30deg) translate(300%, -50%)";
+          line2.style.transform = "rotate(-30deg) translate(0%, 80%)";
+        }, 500);
+      }
+      // showhide buttons
+      function showhidebuttons() {
+        if (imgvalue == shoesarray.length - 1) {
+          document.querySelector(".right").style.display = "none";
+        } else {
+          document.querySelector(".right").style.display = "block";
+        }
+        //
+        if (imgvalue == 0) {
+          document.querySelector(".left").style.display = "none";
+        } else {
+          document.querySelector(".left").style.display = "block";
+        }
+      }
+      // auto play
+      function autoplay() {
+        autoplayinterval = setInterval(() => {
+          slideright();
+          if (imgvalue == shoesarray.length - 1) {
+            setTimeout(() => {
+              for (let i = 0; i < shoesarray.length; i++) {
+                slideleft();
+              }
+            }, 7000);
+          }
+        }, 7000);
+      }
+    </script>
+  </body>
+</html>
