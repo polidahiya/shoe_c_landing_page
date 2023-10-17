@@ -228,6 +228,7 @@
         transition: 0.2s;
       }
       .buynow {
+        font-size: 20px;
         width: 150px;
         background-color: rgb(74, 199, 36);
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -298,11 +299,13 @@
       }
       .mainpriceeffect {
         filter: blur(20px);
+        opacity: 0;
       }
       /* mobile */
       @media screen and (width < 470px) {
         .buttons {
           outline: none;
+          box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.457);
         }
         .buttons:hover {
           outline: none;
@@ -670,12 +673,14 @@
       }
       // control slides with buttons
       document.body.onkeydown = (e) => {
-        console.log(e);
         if (e.key == "ArrowRight") {
-          slideright()
+          slideright();
         } else if (e.key == "ArrowLeft") {
           slideleft();
         }
+      };
+      window.onresize = (e) => {
+        window.location.reload()
       };
     </script>
   </body>
