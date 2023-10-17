@@ -680,7 +680,19 @@
         }
       };
       window.onresize = (e) => {
-        window.location.reload()
+        window.location.reload();
+      };
+      //control slides with swipe
+      let touchvalue = 0;
+      document.ontouchstart = (e) => {
+        touchvalue = e.touches[0].pageX;
+      };
+      document.ontouchend = (e) => {
+        if (e.changedTouches[0].pageX - touchvalue > 100) {
+          slideright();
+        } else if (e.changedTouches[0].pageX - touchvalue < -100) {
+          slideleft();
+        }
       };
     </script>
   </body>
